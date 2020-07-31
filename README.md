@@ -10,6 +10,7 @@ A userscript that makes [openrussian.org](https://en.openrussian.org/) keyboard 
 * Press Ctrl + \[SPACE\] to listen to a word's pronunciation
 * Press Ctrl + \[BACKSPACE\] to go back to the previous word
 * Press Ctrl + \[ENTER\] to go back to next word
+* Press [TAB] to switch between meanings of words with two forms (e.g. [знать](https://en.openrussian.org/ru/%D0%B7%D0%BD%D0%B0%D1%82%D1%8C))
 * When viewing a word, scrolling is possible with \[SPACE\], &#8595; and &#8593; (without search bar focus)
 
 # Installing

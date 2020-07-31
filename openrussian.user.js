@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         OpenRussian Enhancer
 // @namespace    https://github.com/vieuxtemps/
-// @version      0.2
+// @version      0.1
 // @description  A userscript that makes openrussian.org keyboard friendly.
 // @author       vieuxtemps
 // @match        https://en.openrussian.org/*
@@ -87,6 +87,25 @@
         // Ctrl + Enter
         else if(key == 13 && e.ctrlKey) {
             window.history.forward();
+        }
+        // Tab
+        else if(key == 9) {
+            e.preventDefault();
+            e.stopPropagation();
+            if($(document.querySelector("#content > div.page.word > ul").children[0]).hasClass("active")) {
+                $(document.querySelector("#content > div.page.word > ul").children[0]).removeClass("active");
+                $(document.querySelector("#content > div.page.word > ul").children[1]).addClass("active");
+                $(document.querySelector("#content > div.page.word > div.version.version-1")).removeClass("active");
+                $(document.querySelector("#content > div.page.word > div.version.version-2")).addClass("active");
+            }
+            else {
+                $(document.querySelector("#content > div.page.word > ul").children[0]).addClass("active");
+                $(document.querySelector("#content > div.page.word > ul").children[1]).removeClass("active");
+                $(document.querySelector("#content > div.page.word > div.version.version-1")).addClass("active");
+                $(document.querySelector("#content > div.page.word > div.version.version-2")).removeClass("active");
+            }
+
+            window.scrollTo(0, 0);
         }
         // Type anywhere to focus
         else {
