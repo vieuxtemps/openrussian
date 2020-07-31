@@ -15,6 +15,7 @@ A userscript that makes [openrussian.org](https://en.openrussian.org/) keyboard 
 
 # Installing
 Install *openrussian.user.js* with a userscript manager such as [Tampermonkey](https://www.tampermonkey.net/).
+* (Optional) For site-wide cyrillic italics (греческий -> *греческий*), install *openrussian.italics.user.js*.
 
 # Additional info
 * Disabling the virtual keyboard is advised
