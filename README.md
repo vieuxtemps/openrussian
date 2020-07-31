@@ -14,7 +14,7 @@ A userscript that makes [openrussian.org](https://en.openrussian.org/) keyboard 
 * When viewing a word, scrolling is possible with \[SPACE\], &#8595; and &#8593; (without search bar focus)
 
 # Installing
-Install the .js file with a userscript manager such as [Tampermonkey](https://www.tampermonkey.net/).
+Install *openrussian.user.js* with a userscript manager such as [Tampermonkey](https://www.tampermonkey.net/).
 
 # Additional info
 * Disabling the virtual keyboard is advised
