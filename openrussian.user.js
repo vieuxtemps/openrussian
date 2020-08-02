@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         OpenRussian Enhancer
 // @namespace    https://github.com/vieuxtemps/
-// @version      0.5
+// @version      0.6
 // @description  A userscript that makes openrussian.org keyboard friendly.
 // @author       vieuxtemps
 // @match        https://*.openrussian.org/*
@@ -87,6 +87,15 @@
         // Ctrl + Enter
         else if(key == 13 && e.ctrlKey) {
             window.history.forward();
+        }
+        // Ctrl + D
+        else if(key == 68 && e.ctrlKey) {
+            e.preventDefault();
+            e.stopPropagation();
+            if(window.location.href.substring(8, 10) == "en")
+                window.location.href = window.location.href.replace("en.", "de.");
+            else
+                window.location.href = window.location.href.replace("de.", "en.");
         }
         // Tab
         else if(key == 9) {
