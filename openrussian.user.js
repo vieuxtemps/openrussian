@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         OpenRussian Enhancer
 // @namespace    https://github.com/vieuxtemps/
-// @version      0.7
+// @version      0.8
 // @description  A userscript that makes openrussian.org keyboard friendly.
 // @author       vieuxtemps
 // @match        https://*.openrussian.org/*
@@ -12,6 +12,7 @@
     'use strict';
 
     var results;
+    var focusStatus = 0;
 
     // Updates results after a search is finished
     search.search = function( term ) {
@@ -48,6 +49,12 @@
             }
 		});
 	};
+
+    function onFocus() {
+        focusStatus = 1;
+    }
+
+    $(document).ready(function() { $(window).on("focus", onFocus); } );
 
     $(document).keydown(function(e) {
         var key = e.which;
@@ -122,6 +129,12 @@
             var searchbox2 = document.querySelector("body > div.global-search.search > label > input[type=text]");
             if(searchbox != undefined) searchbox.focus();
             if(searchbox2 != undefined) searchbox2.focus();
+
+            // Clears search box when typing after a focus change
+            if(focusStatus) {
+                focusStatus = 0;
+                document.querySelector("body > div.global-search.search > label > input[type=text]").value = "";
+            }
         }
     });
 
