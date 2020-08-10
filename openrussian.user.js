@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         OpenRussian Enhancer
 // @namespace    https://github.com/vieuxtemps/
-// @version      0.8
+// @version      0.9
 // @description  A userscript that makes openrussian.org keyboard friendly.
 // @author       vieuxtemps
 // @match        https://*.openrussian.org/*
@@ -127,8 +127,12 @@
         else {
             var searchbox = document.querySelector("body > main > div.search > div.box.ruchars-container > div > input[type=text]");
             var searchbox2 = document.querySelector("body > div.global-search.search > label > input[type=text]");
-            if(searchbox != undefined) searchbox.focus();
-            if(searchbox2 != undefined) searchbox2.focus();
+
+            // If not on edit mode
+            if(document.querySelector("#content > div.page.word > div > div.section.translations.editing > ul > li:nth-child(1) > div.content > div.editing > div:nth-child(1) > input[type=text]") == null) {
+                if(searchbox != undefined) searchbox.focus();
+                if(searchbox2 != undefined) searchbox2.focus();
+            }
 
             // Clears search box when typing after a focus change
             if(focusStatus) {
